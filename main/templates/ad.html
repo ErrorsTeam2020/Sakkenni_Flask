@@ -1,0 +1,123 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <div class="" >
+        <form method="POST",action="" >
+            {{ form.hidden_tag() }}
+            
+            <fieldset class="form-group" style="width: 750px; position: relative; left: 24%;
+             background-image: linear-gradient(0deg,rgba(255,255,255,0.7),rgba(255,255,255,0.5));
+              padding: 20px; border-radius: 20px">
+
+                <div class="form-group">
+                    <legend class="" style="text-align: center">أدخل بيانات العقار</legend>
+                    {{ form.title.label(class="form-control-label" , style="float: right") }}
+                    {% if form.title.errors %}
+                        {{ form.title(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.title.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.title(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.gov.label(class="form-control-label" , style="float: right") }}
+                        {{ form.gov(class="form-control form-control-lg" , style="direction: rtl") }}
+
+                </div>        
+                <div class="form-group">
+
+
+                    {{ form.address.label(class="form-control-label" , style="float: right") }}
+                    {% if form.address.errors %}
+                        {{ form.address(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.address.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.address(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                   
+
+                  
+                <div class="form-group">
+                    {{ form.room_no.label(class="form-control-label" , style="float: right") }}
+                    {% if form.room_no.errors %}
+                        {{ form.room_no(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.room_no.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.room_no(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.student_no.label(class="form-control-label" , style="float: right") }}
+                    {% if form.student_no.errors %}
+                        {{ form.student_no(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.student_no.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.student_no(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+
+                    {{ form.price.label(class="form-control-label" , style="float: right") }}
+                    {% if form.price.errors %}
+                        {{ form.price(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.price.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.price(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+
+                <div class="form-group">
+
+                    {{ form.description.label(class="form-control-label" , style="float: right") }}
+                    {% if form.description.errors %}
+                        {{ form.description(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.description.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.description(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                
+                
+                
+               
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-primary" , style="float: right") }}
+
+                </div>
+
+                
+
+            </fieldset>
+
+
+
+        </form>
+    </div>
+
+{% endblock content %}

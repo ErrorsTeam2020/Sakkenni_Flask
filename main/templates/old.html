@@ -1,0 +1,134 @@
+{% block content %}
+        <title> سكني | الصفحة الرئيسية </title>
+        <link rel="stylesheet" href="{{file}}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+       <link href="https://fonts.googleapis.com/css2?family=Almarai&family=Cairo&family=Harmattan&family=Tajawal:wght@300&display=swap" rel="stylesheet">
+            <header>
+
+                <nav>
+                    <a  href="/"><img src="{{url_for('static',filename='Images/Logo.png')}}" alt="logo" id="logo" height="60px" width="40px"></a>
+                </nav>
+                <nav>
+                    {% if current_user.is_authenticated %}
+                        <li> <a id="a1" style="position: absolute; z-index: 101; left: 20px; top:15px "  href="{{url_for('logout')}}"> تسجيل خروج <i class="fas fa-sign-in-alt"></i> </a> </li>
+                        <li> <a id="a2" style="position: absolute; z-index: 101; left: 170px; top:15px "  href="{{url_for('ad')}}">اضافة اعلان <i class="fas fa-sign-in-alt"></i> </a> </li>
+
+                    {% else %}
+                        <div>
+                             <ul>
+                                <li> <a id="a3" href="{{url_for('login')}}"> تسجيل دخول <i class="fas fa-sign-in-alt"></i> </a> </li>
+                                <li> <a id="a4" href="{{url_for('register')}}"> إنشاء حساب  <i class="fas fa-user-plus"></i> </a> </li>
+                            </ul>
+                        </div>
+                    {% endif %}
+               </nav>
+            </header>
+            <section id="sec-00">
+                <img src="{{url_for('static',filename='Images/background.jpg')}}" alt="background image">
+                <div id="opacity-div" style="z-index: 100;"></div>
+                <h2 id="caption"> كلام كلام كلام كلام كلام كلام كلام كلام  </h2> 
+                <p id="cap-paragraph"> هنا تقدر تلاقي السكن المناسب من خلال صور واقعيه للسكن مع أمان أكتر ومن غير أي فوايد أو سمسره</p>
+                
+                <div id="center-div" style="z-index: 101;"> 
+                    <h2> بعض مميزات سكني على سبيل المثال لا الحصر </h2>
+                </div>
+            </section>
+            <section id="sec-01">
+                <div id="disc-div">
+                    <div class="disc-box" style="margin-right: 0px;">
+                        <img class="disc-img" src="{{url_for('static',filename='Images/search.png')}}">
+                        <h4> تسهيل عملية البحث </h4>
+                        <p> لإيجاد المكان الأنسب بأقل وقت ومجهود...حاجه آخر فخفخينا</p>
+                    </div>
+                    <div class="disc-box" style="margin-right: 0px;">
+                        <img class="disc-img" src="{{url_for('static',filename='Images/chat.png')}}">
+                        <h4> تواصل مع زملاء السكن </h4>
+                        <p> التعرف على زملاء السكن سيكون مطمئنا أكثر...أليس كذلك أيها الوغد</p>
+                    </div>
+                    <div class="disc-box" style="margin-right: 0px;">
+                        <img class="disc-img"  src="{{url_for('static',filename='Images/money.png')}}">
+                        <h4> فلوسك مش هتضيع فى السمسره </h4>
+                        <p>  أنا اللي هضيعهالك ههه</p>
+                    </div>
+                </div>
+            </section>
+        <section id="sec-02">
+            
+            <div id="container">
+            <!--<div id="search-div">
+                   <div id="searchbox">
+                      <input type="text" placeholder="أبدأ بالبحث عن مكانك الجديد... مثال : (كفرالشيخ - القنطره)"><i class="fas fa-search-location"></i>
+                   </div>
+                </div>-->
+                <select id="governorate">
+                    <option selected disabled> المحافظة </option>
+                    <option > القاهرة  </option>
+                    <option > الإسكندرية </option>
+                    <option > الإسماعيلية </option>
+                    <option > أسوان </option>
+                    <option > أسيوط </option>
+                    <option > الأقصر </option>
+                    <option > البحر الأحمر </option>
+                    <option > البحيرة </option>
+                    <option > بني سويف </option>
+                    <option > بورسعيد </option>
+                    <option > جنوب سيناء </option>
+                    <option > الجيزه </option>
+                    <option > الدقهليه </option>
+                    <option > دمياط </option>
+                    <option > سوهاج </option>
+                    <option > السويس </option>
+                    <option > الشرقية </option>
+                    <option > الغربية </option>
+                    <option > الفيوم </option>
+                    <option > القليوبية </option>
+                    <option > قنا </option>
+                    <option > كفرالشيخ </option>
+                    <option > شمال سيناء </option>
+                    <option > مطروح </option>
+                    <option > المنوفية </option>
+                    <option > المنيا </option>
+                    <option > الوادي الجديد </option>
+                </select>
+                {% for f in flat %}
+                    <div id="apt1-box">
+                        <span id="apt-disc"> {{f.title}} </span>
+                        <div id="img-place">
+                            <img  src="{{url_for('static',filename='Images/es-pic.png')}}">
+                        </div>
+
+                    <div id="apt-details">
+                        <span     id="apt-gr"        class="apt-data-style"> المحافظه: 
+                            <span id="apt-gr-value"> {{f.governorate}} </span>
+                        </span> 
+                        <span     id="apt-address"    class="apt-data-style">العنوان: 
+                            <span id="apt-address-value" > {{f.address}} </span>
+                        </span> 
+                        <span     id="apt-rooms"      class="apt-data-style"> عدد الغرف: 
+                            <span id="apt-rooms-value">  {{f.room_num}}   </span>
+                        </span> 
+                        <span  id="apt-places"        class="apt-data-style"> عدد أفراد :
+                            <span id="apt-places-value">  {{f.student_num}}   </span>
+                        </span> 
+                        <span     id="apt-fplaces"    class="apt-data-style"> السعر:
+                            <span id="apt-fplaces-value"> {{f.price}} </span>
+                        </span>
+                        <span     id="apt-pprice"     class="apt-data-style">  تاريخ النشر:
+                            <span  id="apt-pprice-value" >  {{f.date_posted}}  </span>
+                        </span> 
+                    </div>
+                    <hr>
+                    <div id="apt-disc" style="width:75%;margin:0px 0px;">
+                    <p style="font-size:19px;line-height:49px;">{{f.description}}</p>
+                    </div>
+                    <button id="c-owner"> تواصل مع المالك </button>
+                    </div>
+                {% endfor %}
+            </div>
+            
+        </section>
+        <footer></footer>
+        
+            <script src="{{url_for('static',filename='JS/jquery-3.5.1.min.js')}}"></script>
+            <script src="{{url_for('static',filename='JS/Jq.js')}}"></script>
+{% endblock content %}

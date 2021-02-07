@@ -1,0 +1,7 @@
+body {
+    background-image: linear-gradient(90deg,rgba(0, 0, 0,0.5),rgba(0, 31, 109,0.2)) ,url(  https://images.unsplash.com/photo-1460317442991-0ec209397118?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80  );
+    background-size: cover;
+    font-family: 'Almarai', sans-serif;
+
+    font-weight: bold;
+}

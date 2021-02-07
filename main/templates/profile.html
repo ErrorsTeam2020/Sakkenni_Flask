@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title> سكني | الصفحه الشخصية </title>
+        <link rel="stylesheet" href="{{file}}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Rakkas&family=Almarai&family=Cairo&family=Harmattan&family=Tajawal:wght@300&display=swap" rel="stylesheet">
+    </head>
+    <body>
+    <div id="opacity" style=" width:100%;
+    height: 115.5%;
+    background-color: #092138f2;
+    position: absolute;
+    top:0px;"> </div>
+        <header>
+
+                <nav>
+                    <a  href="/"><img src="{{url_for('static',filename='Images/Logo.png')}}" alt="logo" id="logo" height="60px" width="40px"></a>
+                </nav>
+                <nav>
+                    {% if current_user.is_authenticated %}
+
+                        <li> <a id="a1" style="position: absolute; z-index: 101; left: 20px; top:15px "  href="{{url_for('logout')}}"> تسجيل خروج <i class="fas fa-sign-in-alt"></i> </a> </li>
+
+                    {% if current_user.user_class=="صاحب عقار" %}
+                        <li> <a id="a2" style="position: absolute; z-index: 101; left: 170px; top:15px "  href="{{url_for('ad')}}">اضافة اعلان <i class="fas fa-sign-in-alt"></i> </a> </li>
+                        <li> <a id="a3" style="position: absolute; z-index: 101; left: 320px; top:15px "  href="{{url_for('profile')}}">الحساب <i class="fas fa-sign-in-alt"></i> </a> </li>
+                    {% else %}
+                    <li> <a id="a4" style="position: absolute; z-index: 101; left: 170px; top:15px "  href="{{url_for('profile')}}">الحساب <i class="fas fa-sign-in-alt"></i> </a> </li>
+
+                    {% endif %}
+                    {% else %}
+
+                        <div>
+                             <ul>
+                                <li> <a id="a5" href="{{url_for('login')}}"> تسجيل دخول <i class="fas fa-sign-in-alt"></i> </a> </li>
+                                <li> <a id="a6" href="{{url_for('register')}}"> إنشاء حساب  <i class="fas fa-user-plus"></i> </a> </li>
+                            </ul>
+                        </div>
+                    {% endif %}
+               </nav>
+            </header>
+        <section>
+            <div id="container" style="position:absolute;">
+                <div id="left-side">
+                    <img src="{{url_for('static',filename='Images/p-photo2.png')}}">
+                    <span id="user-name" style="margin-right:50px "> {{current_user.username}}@ </span>
+                    <div id="details">
+                        <span  id="full-name"  class="data-style"> الإسم بالكامل: 
+                            <span id="full-name-value"> {{current_user.fullname}} </span>
+                        </span> 
+                        <span  id="id"         class="data-style">
+                            الرقم القومي: <span id="id-value" > {{current_user.nat_id}} </span>
+                        </span> 
+                        <span  id="gender"         class="data-style">  الجنس: 
+                            <span id="gender-value">  {{current_user.gender}}   </span>
+                        </span> 
+                        <span  id="email"      class="data-style"> البريد الإلكتروني: 
+                            <span id="email-value"> {{current_user.email}} </span>
+                        </span>
+                        <span  id="phone"         class="data-style">  رقم الهاتف:
+                            <span  id="phone-value" >  {{current_user.phone}}  </span>
+                        </span> 
+                        <span  id="gr" class="data-style">  محافظة: 
+                            <span  id="gr-value">  {{current_user.governorate}}  </span>
+                        </span>   
+                    </div>
+                    
+                </div>
+                <div id="right-side" style="background-color:#024566;">
+                    <img style="width:350px;margin-right:75px;margin-top:75px" src="{{url_for('static',filename='Images/Logo.png')}}">
+                    <p style="margin-top:150px; color:white;"> يختص الموقع بإيجاد سكن مناسب وملائم للطلاب المغتربين
+                        <br> من مختلف المحافظات نظرا لعدة أسباب منها التكاليف ومشقة البحث و الاضطرار للتعامل مع السماسرة . يهدف الموقع إلى توفير بحث أسرع وتوفير كل التفاصيل التي يمكن ٱن تجعل عملية البحث أدق وأفضل.
+                    </p>
+                    <p style="font-weight:bold;color:#FF8B00;font-size:30px; margin-top:20px"> ERRORS TEAM</p>
+
+                    <p style="color:#FFFFFF;">Mahmoud Ayman</p>
+                    <p style="color:#FFFFFF;">Marwan Atef</p>
+                    <p style="color:#FFFFFF;">Mustafa Reda</p>
+                    <p style="color:#ffffff;">Samira Waheed</p>
+                </div>
+            </div>
+            
+            
+        </section>
+            <script src="{{url_for('static',filename='JS/jquery-3.5.1.min.js')}}"></script>
+            <script src="{{url_for('static',filename='JS/Jq.js')}}"></script>
+    </body>
+</html>

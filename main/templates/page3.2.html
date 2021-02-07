@@ -1,0 +1,119 @@
+{% block content %}
+        <title> سكني | الصفحة الرئيسية </title>
+        <link rel="stylesheet" href="{{file}}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+       <link href="https://fonts.googleapis.com/css2?family=Almarai&family=Cairo&family=Harmattan&family=Tajawal:wght@300&display=swap" rel="stylesheet">
+            <header>
+
+                <nav>
+                    <a  href="/"><img src="{{url_for('static',filename='Images/Logo.png')}}" alt="logo" id="logo" height="60px" width="40px"></a>
+                </nav>
+                <nav>
+                    {% if current_user.is_authenticated %}
+
+                        <li> <a id="a1" style="position: absolute; z-index: 101; left: 20px; top:15px "  href="{{url_for('logout')}}"> تسجيل خروج <i class="fas fa-sign-in-alt"></i> </a> </li>
+
+                    {% if current_user.user_class=="صاحب عقار" %}
+                        <li> <a id="a1" style="position: absolute; z-index: 101; left: 170px; top:15px "  href="{{url_for('ad')}}">اضافة اعلان <i class="fas fa-sign-in-alt"></i> </a> </li>
+                        <li> <a id="a1" style="position: absolute; z-index: 101; left: 320px; top:15px "  href="{{url_for('profile')}}">الحساب <i class="fas fa-sign-in-alt"></i> </a> </li>
+                    {% else %}
+                    <li> <a id="a1" style="position: absolute; z-index: 101; left: 170px; top:15px "  href="{{url_for('profile')}}">الحساب <i class="fas fa-sign-in-alt"></i> </a> </li>
+
+                    {% endif %}
+                    {% else %}
+
+                        <div>
+                             <ul>
+                                <li> <a id="a1" href="{{url_for('login')}}"> تسجيل دخول <i class="fas fa-sign-in-alt"></i> </a> </li>
+                                <li> <a id="a2" href="{{url_for('register')}}"> إنشاء حساب  <i class="fas fa-user-plus"></i> </a> </li>
+                            </ul>
+                        </div>
+                    {% endif %}
+               </nav>
+            </header>
+            <section id="sec-00">
+                <img src="{{url_for('static',filename='Images/background.jpg')}}" alt="background image">
+                <div id="opacity-div" style="z-index: 100;"></div>
+                <h2 id="caption"> سكني - أعثر علي شقتك بنفسك ...وداعا للسماسره🌚  </h2>
+                <p id="cap-paragraph" > أفضل تطبيق لإيجار الشقق للطلبه ويتميز أنه سهل الاستخدام ويقدم خيارات متعدده والدعم الفني علي مستوي محافظات مصر.</p>
+                
+                <div id="center-div" style="z-index: 101;"> 
+                    <h2> بعض مميزات سكني على سبيل المثال لا الحصر </h2>
+                </div>
+            </section>
+            <section id="sec-01">
+                <div id="disc-div">
+                    <div class="disc-box" style="margin-right: 0px;">
+                        <img class="disc-img" src="{{url_for('static',filename='Images/search.png')}}">
+                        <h4> تسهيل عملية البحث </h4>
+                        <p> لإيجاد المكان الأنسب بأقل وقت ومجهود</p>
+                    </div>
+                    <div class="disc-box" style="margin-right: 0px;">
+                        <img class="disc-img" src="{{url_for('static',filename='Images/chat.png')}}">
+                        <h4> تواصل مع زملاء السكن </h4>
+                        <p> التعرف على زملاء السكن سيكون مطمئنا أكثر</p>
+                    </div>
+                    <div class="disc-box" style="margin-right: 0px;">
+                        <img class="disc-img"  src="{{url_for('static',filename='Images/money.png')}}">
+                        <h4> فلوسك مش هتضيع فى السمسره </h4>
+
+                    </div>
+                </div>
+            </section>
+        <section id="sec-02" style="background-color:#152b41;">
+               <div id="search-div" style="width:500px;height:50px;border:1px solid white;border-radius:25px;background-color:white;transform:translate(-300px,30px);">
+                      <input type="text" placeholder="أبدأ بالبحث عن مكانك الجديد... مثال : (كفرالشيخ - القنطره)" style="width:91%;height:100%;background:none;border:none;border-left:2px solid #AAA;outline:none;padding:0px 10px;font-size:20px"><i class="fas fa-search-location" style="font-size:25px;margin-right:10px"></i>
+               </div>
+            <input type="button" value=" إبحث " style="width:160px;height:50px;transform:translate(350px,-20px);float:left;font-size:32px;line-height:30px;cursor:pointer;outline:none;border:1px;border-radius:25px;background-color:#ff5722;color:white ">
+
+                {% for f in flat %}
+             <div id="apt-container" style="transform:translate(-30px,50px);width:95%;margin-top:15px; height:360px;border:3px;background-color:#FFFFFF;">
+                    <span style="color:#424242;margin:10px 20px 0px 0px;font-size:23px;"> {{f.title}} </span>
+                    <div id="apt-details" style="display:flex;">
+                        <div id="img-place" style="margin:15px 20px;width:30%;">
+                            <img  src="{{url_for('static',filename='Images/es-pic.png')}}" style="width:400px">
+                        </div>
+                        <div id="apt-data" style="width:40%;line-height:49.5px;letter-spacing:1px;margin:0px 20px;font-size:20px;color:#515151f0;">
+                        <span     id="apt-gvr"  style="display:block;"  > المحافظه:
+                            <span id="apt-gvr-value"> {{f.governorate}} </span>
+                        </span>
+                        <span     id="apt-add"      style="display:block;" >العنوان:
+                            <span id="apt-add-value" > {{f.address}} </span>
+                        </span>
+                        <span     id="apts-rooms"   style="display:block;" > عدد الغرف:
+                            <span id="apts-rooms-value">  {{f.room_num}}   </span>
+                        </span>
+                        <span  id="apt-cpacity"     style="display:block;" > عدد أفراد :
+                            <span id="apt-capacity-value">  {{f.student_num}}   </span>
+                        </span>
+                        <span     id="apt-price"    style="display:block;" > السعر:
+                            <span id="apt-price-value"> {{f.price}} </span>
+                        </span>
+                        <span     id="apt-date"     style="display:block;" >  تاريخ النشر:
+                            <small  id="apt-date-value" >  {{f.date_posted.strftime('%Y-%m-%d')}}  </small>
+                        </span>
+                    </div>
+                        <hr style="transform:translate(10px,10px);height:290px;">
+                    <div id="apt-disc" style="width:40%; margin:0px 0px;">
+                    <p style="font-size:19px;line-height:49px;">{{f.description}}</p>
+                    </div>
+                        <div id="owner-info" style="width:700px;transform:translate(200px,250px);float:left;">
+                            <span style="font-size:23px;opacity:.8;"> للتواصل مع المالك : <span style="opacity:.6;margin-right:5px"> {{f.author.phone}} </span> </span>
+
+                        </div>
+                    <!--<button id="cn-owner" style="width:280px;height:45px;border:1px solid white;border-radius:5pX;outline:none;background-color:#FF5722;color:white;font-size:19px;transform:translate(300px,250px);float:left;cursor: pointer;"> تواصل مع المالك </button>-->
+                    </div>
+                    </div>
+
+        </div>
+                {% endfor %}
+            </div>
+            
+        </section>
+
+        <footer></footer>
+        
+            <script src="{{url_for('static',filename='JS/jquery-3.5.1.min.js')}}"></script>
+            <script src="{{url_for('static',filename='JS/Jq.js')}}"></script>
+            <script src="{{url_for('static',filename='popjs/jq2.js')}}"></script>
+{% endblock content %}

@@ -1,0 +1,135 @@
+body{
+    background-image:url("../Images/3.jpg");
+    font-family: 'Almarai', sans-serif;
+    direction: rtl;
+}
+*{
+    margin:0px;
+    padding: 0px;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Almarai', sans-serif;
+}
+header{
+    width:100%; 
+    height:80px;
+    background:none;
+    display: flex;
+    box-shadow:0px 0px 10px  #000000;
+}
+#logo{
+    width:130px;
+    position: absolute;
+    z-index: 1111;
+    margin:20px 30px;
+}
+#search-box {
+    width:400px;
+    height:40px;
+    background-color: #ffffff;
+    transform:translate(-200px,20px);
+    border:1px solid rgb(0,0,0,.3);
+    border-radius:3px;
+}
+#search-box input{
+    width:88%;
+    height: 100%;
+    font-family: 'Almarai', sans-serif;
+    font-size: 20px;
+    padding: 10px;
+    background: none;
+    border:none;
+    color:#363636;
+    outline:none;
+}
+#taps {
+    position: absolute;
+    left:0px;
+}
+#taps ul{
+    display: flex;
+}
+#taps ul li {
+    margin: 27px 20px;
+    font-size: 19px;
+}
+#taps ul li #profile-icon{
+    font-size: 45px;
+    margin:-10px 0px 0px 0px;
+    width:70px;
+    padding: 0px;
+    text-align: center;
+    padding-bottom:10px;
+}
+#taps ul li a {
+    color:#9fabbd;
+    padding-bottom:27px;
+}
+.active{
+        border-bottom:3px solid #ff0068;
+        transition: .6s
+}
+#opacity-div{
+    width:100%;
+    height: 484px;
+    background-color: #092138f2;
+    position: absolute;
+    top:0px;
+}
+section #container{
+    width:900px;
+    height:630px;
+    margin: 30px 300px 0px 0px;
+    border: 1px;
+    border-radius: 10px;
+    box-shadow:5px 5px 8px #000000a3;
+    display:flex;
+}
+/* start style left side*/
+#container #left-side{
+    width:40%;
+    height:100%;
+    background-color:#e4e4e4;
+    border: 1px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+section  #container #left-side img {
+    width:280px;
+   margin:20px 50px;
+   display:inline-flex;
+}
+#left-side #user-name{
+    font-size:28px;
+    width:100%;
+    margin-right:100px; 
+    color:#424242;   
+}
+#details{
+    margin:30px;
+}
+#details .data-style{
+    display:block;
+    line-height:45px;
+    color:#4a626d;
+}
+#right-side{
+    float:left;
+    height:100%;
+    width:60%;
+    background-color:#607D8B;
+    border: 1px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+#right-side img{
+    width:500px;
+    transform:translate(0px,-50px);
+}
+#right-side p{
+    text-align:center;
+    line-height:30px;
+    word-spacing:8px;
+    transform:translate(0px,-180px);
+}

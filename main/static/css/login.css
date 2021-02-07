@@ -1,0 +1,105 @@
+sbody{
+    background-image: url('../Images/2.jpg');
+    direction: rtl
+}
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Almarai', sans-serif;
+    text-decoration: none;
+
+}
+#logo{
+    width:130px;
+    position: absolute;
+    z-index: 1111;
+    margin:20px 30px;
+}
+#opacity{
+    width:100%;
+    height: 753px;
+    background-color: #092138e8;
+    position: absolute;
+    top:0px;
+}
+#container{
+    width:650px;
+    height:530px;
+    background-color: #e8e7e7;
+    position: absolute;
+    top:50%; right:50%;
+    transform: translate(50%,-50%);
+    border-radius: 25px;
+    box-shadow: 5px 5px 8px #000000a3
+}
+#taps{
+    background-color:#092138e8;
+    height: 70px;
+    display: flex;
+    border-top-right-radius:25px;
+    border-top-left-radius:25px;
+}
+#login-bt{
+    color:#dcdcdc;
+    margin:10px;
+    font-size: 30px;
+    background: none;
+    outline: none;
+    transform:translate(-220px,0px);
+    border-bottom:3.5px solid #ff7600;
+}
+
+#login-form{
+    transform:translate(-60px,80px);
+    width:100%;
+}
+#login-form input[type="text"] , input[type="password"]{
+    width:94%;
+    height:50px;
+    font-size: 18px;
+    border:none;
+    background:none;
+    padding: 0px 15px;
+    outline:none
+}
+#email , #pass{
+    width:80%;
+    height:50px;
+    border-bottom:1px solid #172761;
+    margin-top:15px
+
+}
+#pass{
+    margin-top:30px;
+}
+#email i, #pass i{
+    font-size: 25px;
+    color:#949393
+}
+input[type="checkbox"]{
+    margin-top: 30px;
+}
+#remember-me{
+    margin-right: 5px;
+}
+#reset-pass{
+    display:flex;
+    margin-top:25px;
+}
+#back-to-signup{
+    display:flex;
+    margin:20px 0px;
+}
+#submit-log{
+    transform:translate(-210px);
+    width:100px;
+    height:45px;
+    font-size: 23px;
+    background-color:#9e9e9e;
+    color:white;
+    border:1px;
+    border-radius: 0px;
+    outline: none;
+    cursor:pointer;
+}

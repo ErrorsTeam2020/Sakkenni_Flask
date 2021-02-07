@@ -1,0 +1,156 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <div class="" >
+        <form method="POST",action="" >
+            {{ form.hidden_tag() }}
+            
+            <fieldset class="form-group" style="width: 750px; position: relative; left: 24%;
+             background-image: linear-gradient(0deg,rgba(255,255,255,0.7),rgba(255,255,255,0.5));
+              padding: 20px; border-radius: 20px">
+
+                <div class="form-group">
+                    <legend class="" style="text-align: center">قم بإنشاء حساب</legend>
+                    {{ form.fullName.label(class="form-control-label" , style="float: right") }}
+                    {% if form.fullName.errors %}
+                        {{ form.fullName(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.fullName.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.fullName(class="form-control form-control-lg") }}
+                    {% endif %}
+
+                <div class="form-group">
+
+                    {{ form.username.label(class="form-control-label" , style="float: right") }}
+                    {% if form.username.errors %}
+                        {{ form.username(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.username.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.username(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                    <div class="form-group">
+
+                        {{ form.phone.label(class="form-control-label" , style="float: right") }}
+                        {% if form.phone.errors %}
+                            {{ form.phone(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.phone.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.phone(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+
+
+                   <div class="form-group">
+
+                        {{ form.address.label(class="form-control-label" , style="float: right") }}
+                        {% if form.address.errors %}
+                            {{ form.address(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.address.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.address(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                <div class="form-group">
+                    {{ form.email.label(class="form-control-label" , style="float: right") }}
+                    {% if form.email.errors %}
+                        {{ form.email(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.password.label(class="form-control-label" , style="float: right") }}
+                    {% if form.password.errors %}
+                        {{ form.password(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.password(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.confirm_password.label(class="form-control-label" , style="float: right") }}
+                    {% if form.confirm_password.errors %}
+                        {{ form.confirm_password(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.confirm_password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.confirm_password(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.nat_id.label(class="form-control-label" , style="float: right") }}
+                    {% if form.nat_id.errors %}
+                        {{ form.nat_id(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.nat_id.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.nat_id(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.gov.label(class="form-control-label" , style="float: right") }}
+                        {{ form.gov(class="form-control form-control-lg" , style="direction: rtl") }}
+
+                </div>
+                <div class="form-group">
+                    {{ form.user_class.label(class="form-control-label" , style="float: right") }}
+                        {{ form.user_class(class="form-control form-control-lg" , style="direction: rtl") }}
+
+                </div>
+
+                <div class="form-group">
+                    {{ form.gender.label(class="form-control-label" , style="float: right") }}
+                        {{ form.gender(class="form-control form-control-lg" , style="direction: rtl") }}
+
+                </div>
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-primary" , style="float: right") }}
+
+                </div>
+
+                <div class="">
+                    <small class="text-muted" style="font-family: 'Almarai', sans-serif">
+                        لديك حساب بالفعل؟ <a class="ml-2" href="{{ url_for('login') }}">سجل دخولك الآن</a>
+                    </small>
+                </div>
+
+            </fieldset>
+
+
+
+        </form>
+    </div>
+
+{% endblock content %}
