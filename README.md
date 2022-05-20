@@ -1,2 +1,6 @@
 # Sakkenni_Flask
-This is the first project for our team using Python with Flask framework.
+This is a small web application project implemented
+Bby HTML, CSS, JavaScript, python and flask framework.
+It's a simulation for a process about searching for
+residence for university students without having to deal
+with brokers. 
